@@ -26,22 +26,20 @@ pipeline {
         }
 
         stage('Test') {
-            stages {
-                parallel {
-                    stage("Test-Test") {
-                        steps {
-                            sh "mvn test"
-                        }
-                        post {
-                            always {
-                                junit "**/TEST-*.xml"
-                            }
+            parallel {
+                stage("Test-Test") {
+                    steps {
+                        sh "mvn test"
+                    }
+                    post {
+                        always {
+                            junit "**/TEST-*.xml"
                         }
                     }
-                    stage("Test-Generate-JavaDoc") {
-                        steps {
-                            sh "mvn javadoc:test-jar"
-                        }
+                }
+                stage("Test-Generate-JavaDoc") {
+                    steps {
+                        sh "mvn javadoc:test-jar"
                     }
                 }
             }
