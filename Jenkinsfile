@@ -11,18 +11,46 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                sh "mvn clean install -DskipTests=true"
+            stages {
+                stage("Build-Compile") {
+                    steps {
+                        sh "mvn clean install -DskipTests=true"
+                    }
+                }
+                stage("Build-Generate-JavaDoc") {
+                    steps {
+                        sh "mvn javadoc:jar"
+                    }
+                }
             }
         }
 
         stage('Test') {
-            steps {
-                sh "mvn test"
+            stages {
+                parallel {
+                    stage("Test-Test") {
+                        steps {
+                            sh "mvn test"
+                        }
+                        post {
+                            always {
+                                junit "**/TEST-*.xml"
+                            }
+                        }
+                    }
+                    stage("Test-Generate-JavaDoc") {
+                        steps {
+                            sh "mvn javadoc:test-jar"
+                        }
+                    }
+                }
             }
         }
 
         stage('Deploy') {
+            when {
+                branch 'master'
+            }
             steps {
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
