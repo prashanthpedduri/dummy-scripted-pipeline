@@ -18,8 +18,17 @@ pipeline {
                     }
                 }
                 stage("Build-Generate-JavaDoc") {
-                    steps {
-                        sh "mvn javadoc:jar"
+                    stages {
+                        stage("Build-Generate-JavaDoc-HTML") {
+                            steps {
+                                sh "mvn javadoc:javadoc"
+                            }
+                        }
+                        stage("Build-Generate-JavaDoc-JAR") {
+                            steps {
+                                sh "mvn javadoc:jar"
+                            }
+                        }
                     }
                 }
             }
