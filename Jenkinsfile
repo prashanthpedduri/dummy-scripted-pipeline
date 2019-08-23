@@ -14,7 +14,6 @@ pipeline {
             stages {
                 stage("Build-Compile") {
                     steps {
-                        snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                         sh "mvn clean install -DskipTests=true"
                     }
                 }
