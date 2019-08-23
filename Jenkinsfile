@@ -13,6 +13,7 @@ pipeline {
         stage('Build') {
             stages {
                 stage("Build-Compile") {
+                    snDevOpsStep '193c590bdbbee300f16092dadb9619e7'
                     steps {
                         sh "mvn clean install -DskipTests=true"
                     }
@@ -20,6 +21,7 @@ pipeline {
                 stage("Build-Generate-JavaDoc") {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
+                            snDevOpsStep '193c590bdbbee300f16092dadb9619e7'
                             steps {
                                 sh "mvn javadoc:javadoc"
                             }
