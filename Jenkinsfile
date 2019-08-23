@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             stages {
                 stage("Build-Compile") {
-                    snDevOpsStep '193c590bdbbee300f16092dadb9619e7'
+                    snDevOpsStep '8d8a11c7dbbee300f16092dadb9619cb'
                     steps {
                         sh "mvn clean install -DskipTests=true"
                     }
