@@ -22,7 +22,7 @@ pipeline {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
                             steps {
-                                snDevOpsStep '8cdb27bb53d33300b231ddeeff7b12f7'
+                                snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
                                 sh "mvn javadoc:javadoc"
                             }
                         }
