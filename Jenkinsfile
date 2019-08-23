@@ -13,16 +13,16 @@ pipeline {
         stage('Build') {
             stages {
                 stage("Build-Compile") {
-                    snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                     steps {
+                        snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                         sh "mvn clean install -DskipTests=true"
                     }
                 }
                 stage("Build-Generate-JavaDoc") {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
-                            snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                             steps {
+                                snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                                 sh "mvn javadoc:javadoc"
                             }
                         }
