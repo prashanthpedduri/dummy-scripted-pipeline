@@ -28,6 +28,7 @@ pipeline {
                         }
                         stage("Build-Generate-JavaDoc-JAR") {
                             steps {
+                                snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
                                 sh "mvn javadoc:jar"
                             }
                         }
