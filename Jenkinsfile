@@ -41,7 +41,7 @@ pipeline {
             parallel {
                 stage("Test-Test") {
                     steps {
-                        snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
+                        snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
                         sh "mvn test"
                     }
                     post {
@@ -63,7 +63,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
+                // snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
                 // sh "mvn -B release:perform"
