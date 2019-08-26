@@ -1,3 +1,7 @@
+// CRM Portal - CI --> 00db27bb53d33300b231ddeeff7b12f8
+// CRM Portal - UAT --> 8cdb27bb53d33300b231ddeeff7b12f7
+// CRM Portal - Stage --> c0db27bb53d33300b231ddeeff7b12f7
+// CRM Portal - Prod --> 0cdb27bb53d33300b231ddeeff7b12f7
 pipeline {
     agent any
     tools { 
@@ -6,6 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
                 checkout scm
             }
         }
@@ -14,7 +19,7 @@ pipeline {
             stages {
                 stage("Build-Compile") {
                     steps {
-                        snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
+                        snDevOpsStep '8cdb27bb53d33300b231ddeeff7b12f7'
                         sh "mvn clean install -DskipTests=true"
                     }
                 }
@@ -22,13 +27,13 @@ pipeline {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
                             steps {
-                                snDevOpsStep '8cdb27bb53d33300b231ddeeff7b12f7'
+                                snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
                                 sh "mvn javadoc:javadoc"
                             }
                         }
                         stage("Build-Generate-JavaDoc-JAR") {
                             steps {
-                                snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
+                                //snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
                                 sh "mvn javadoc:jar"
                             }
                         }
