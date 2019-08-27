@@ -28,7 +28,7 @@ pipeline {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
                             steps {
-                                snDevOpsStep '730559dd53673300b231ddeeff7b12a5' //deploy stage sys-id
+                                //snDevOpsStep '730559dd53673300b231ddeeff7b12a5' //deploy stage sys-id
                                 sh "mvn javadoc:javadoc"
                             }
                         }
@@ -58,6 +58,7 @@ pipeline {
                 }
                 stage("Test-Generate-JavaDoc") {
                     steps {
+                        snDevOpsStep '730559dd53673300b231ddeeff7b12a5'
                         sh "mvn javadoc:test-jar"
                     }
                 }
