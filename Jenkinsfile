@@ -1,7 +1,7 @@
-// CRM Portal - CI --> 00db27bb53d33300b231ddeeff7b12f8
-// CRM Portal - UAT --> 8cdb27bb53d33300b231ddeeff7b12f7
-// CRM Portal - Stage --> c0db27bb53d33300b231ddeeff7b12f7
-// CRM Portal - Prod --> 0cdb27bb53d33300b231ddeeff7b12f7
+// CRM Portal - Checkout --> ff0559dd53673300b231ddeeff7b12a4
+// CRM Portal - Build --> 7f0559dd53673300b231ddeeff7b12a4
+// CRM Portal - Test --> b70559dd53673300b231ddeeff7b12a4
+// CRM Portal - Deploy --> 730559dd53673300b231ddeeff7b12a5
 pipeline {
     agent any
     tools { 
@@ -10,16 +10,17 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                snDevOpsStep '00db27bb53d33300b231ddeeff7b12f8'
+                snDevOpsStep 'ff0559dd53673300b231ddeeff7b12a4'
                 checkout scm
             }
         }
 
         stage('Build') {
+            //snDevOpsStep '8cdb27bb53d33300b231ddeeff7b12f7'
             stages {
                 stage("Build-Compile") {
                     steps {
-                        snDevOpsStep '8cdb27bb53d33300b231ddeeff7b12f7'
+                        snDevOpsStep '7f0559dd53673300b231ddeeff7b12a4'
                         sh "mvn clean install -DskipTests=true"
                     }
                 }
@@ -27,7 +28,7 @@ pipeline {
                     stages {
                         stage("Build-Generate-JavaDoc-HTML") {
                             steps {
-                                snDevOpsStep 'c0db27bb53d33300b231ddeeff7b12f7'
+                                snDevOpsStep '730559dd53673300b231ddeeff7b12a5' //deploy stage sys-id
                                 sh "mvn javadoc:javadoc"
                             }
                         }
@@ -46,7 +47,7 @@ pipeline {
             parallel {
                 stage("Test-Test") {
                     steps {
-                        snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
+                        snDevOpsStep 'b70559dd53673300b231ddeeff7b12a4'
                         sh "mvn test"
                     }
                     post {
