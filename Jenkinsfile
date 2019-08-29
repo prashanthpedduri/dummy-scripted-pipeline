@@ -49,7 +49,7 @@ pipeline {
                     steps {
                         snDevOpsStep 'b70559dd53673300b231ddeeff7b12a4'
                         sh "mvn test"
-                        junit "**/TEST-*.xml"
+                        //junit "**/TEST-*.xml"
                     }
                     //post {
                     //    always {
