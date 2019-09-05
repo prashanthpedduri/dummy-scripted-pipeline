@@ -1,7 +1,3 @@
-// CRM Portal - Checkout --> ff0559dd53673300b231ddeeff7b12a4
-// CRM Portal - Build --> 7f0559dd53673300b231ddeeff7b12a4
-// CRM Portal - Test --> b70559dd53673300b231ddeeff7b12a4
-// CRM Portal - Deploy --> 730559dd53673300b231ddeeff7b12a5
 pipeline {
     agent any
     tools { 
