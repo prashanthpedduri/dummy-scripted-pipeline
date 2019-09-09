@@ -64,9 +64,9 @@ pipeline {
         }
 
         stage('Deploy') {
-            when {
-                branch 'master'
-            }
+            //when {
+            //    branch 'master'
+            //}
             steps {
                 snDevOpsStep '730559dd53673300b231ddeeff7b12a5'
                 // sh "mvn -B deploy"
