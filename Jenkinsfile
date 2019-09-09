@@ -44,6 +44,7 @@ pipeline {
                 stage("Test-Test") {
                     steps {
                         snDevOpsStep 'b70559dd53673300b231ddeeff7b12a4'
+                        snDevOpsChange()
                         sh "mvn test"
                         junit "**/TEST-*.xml"
                     }
