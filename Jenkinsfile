@@ -68,7 +68,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                // snDevOpsStep '0cdb27bb53d33300b231ddeeff7b12f7'
+                snDevOpsStep '730559dd53673300b231ddeeff7b12a5'
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
                 // sh "mvn -B release:perform"
