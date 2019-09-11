@@ -70,7 +70,7 @@ pipeline {
             //}
             steps {
                 snDevOpsStep '730559dd53673300b231ddeeff7b12a5'
-                snDevOpsChange()
+                //snDevOpsChange()
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
                 // sh "mvn -B release:perform"
