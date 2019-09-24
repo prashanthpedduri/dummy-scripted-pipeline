@@ -12,9 +12,9 @@ pipeline {
         }
 
         stage('Build') {
-            steps{
-                snDevOpsStep '7f0559dd53673300b231ddeeff7b12a4'
-            }
+            //steps{
+            //    snDevOpsStep '7f0559dd53673300b231ddeeff7b12a4'
+            //}
             stages {
                 stage("Build-Compile") {
                     steps {
