@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                snDevOpsStep '10946fb253c00010b231ddeeff7b12b7'
+                snDevOpsStep() // '10946fb253c00010b231ddeeff7b12b7'
                 checkout scm
             }
         }
@@ -18,7 +18,7 @@ pipeline {
             stages {
                 stage("Build-Compile") {
                     steps {
-                        snDevOpsStep '14946fb253c00010b231ddeeff7b12b7'
+                        snDevOpsStep() // '14946fb253c00010b231ddeeff7b12b7'
                         sh "mvn clean install -DskipTests=true"
                     }
                 }
@@ -45,7 +45,7 @@ pipeline {
             parallel {
                 stage("Test-Test") {
                     steps {
-                        snDevOpsStep '9c946fb253c00010b231ddeeff7b12b6'
+                        snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
                         snDevOpsChange()
                         sh "mvn test"
                         junit "**/TEST-*.xml"
@@ -58,7 +58,7 @@ pipeline {
                 }
                 stage("Test-Generate-JavaDoc") {
                     steps {
-                        snDevOpsStep '9c946fb253c00010b231ddeeff7b12b6'
+                        snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
                         snDevOpsChange()
                         sh "mvn javadoc:test-jar"
                     }
@@ -71,7 +71,7 @@ pipeline {
             //    branch 'master'
             //}
             steps {
-                snDevOpsStep '90946fb253c00010b231ddeeff7b12b7'
+                snDevOpsStep() // '90946fb253c00010b231ddeeff7b12b7'
                 snDevOpsChange()
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
