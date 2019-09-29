@@ -58,8 +58,8 @@ pipeline {
                 }
                 stage("Test-Generate-JavaDoc") {
                     steps {
-                        snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
-                        snDevOpsChange()
+                        //snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
+                        //snDevOpsChange()
                         sh "mvn javadoc:test-jar"
                     }
                 }
