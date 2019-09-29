@@ -46,7 +46,7 @@ pipeline {
                 stage("Test-Test") {
                     steps {
                         snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
-                        snDevOpsChange()
+                        //snDevOpsChange()
                         sh "mvn test"
                         junit "**/TEST-*.xml"
                     }
@@ -59,7 +59,7 @@ pipeline {
                 stage("Test-Generate-JavaDoc") {
                     steps {
                         snDevOpsStep() // '9c946fb253c00010b231ddeeff7b12b6'
-                        snDevOpsChange()
+                        //snDevOpsChange()
                         sh "mvn javadoc:test-jar"
                     }
                 }
@@ -72,7 +72,7 @@ pipeline {
             //}
             steps {
                 snDevOpsStep() // '90946fb253c00010b231ddeeff7b12b7'
-                //snDevOpsChange()
+                snDevOpsChange()
                 // sh "mvn -B deploy"
                 // sh "mvn -B release:prepare"
                 // sh "mvn -B release:perform"
